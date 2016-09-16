@@ -1,0 +1,91 @@
+D:\C# gyakorlatok\Bridge_App\Bridge_App\bin\Debug\Bridge_App.exe.config
+D:\C# gyakorlatok\Bridge_App\Bridge_App\bin\Debug\Bridge_App.exe
+D:\C# gyakorlatok\Bridge_App\Bridge_App\bin\Debug\Bridge_App.pdb
+D:\C# gyakorlatok\Bridge_App\Bridge_App\obj\Debug\MainWindow.g.cs
+D:\C# gyakorlatok\Bridge_App\Bridge_App\obj\Debug\App.g.cs
+D:\C# gyakorlatok\Bridge_App\Bridge_App\obj\Debug\Bridge_App_MarkupCompile.cache
+D:\C# gyakorlatok\Bridge_App\Bridge_App\obj\Debug\Bridge_App_MarkupCompile.lref
+D:\C# gyakorlatok\Bridge_App\Bridge_App\obj\Debug\MainWindow.baml
+D:\C# gyakorlatok\Bridge_App\Bridge_App\obj\Debug\Bridge_App.g.resources
+D:\C# gyakorlatok\Bridge_App\Bridge_App\obj\Debug\Bridge_App.Properties.Resources.resources
+D:\C# gyakorlatok\Bridge_App\Bridge_App\obj\Debug\Bridge_App.csproj.GenerateResource.Cache
+D:\C# gyakorlatok\Bridge_App\Bridge_App\obj\Debug\Bridge_App.exe
+D:\C# gyakorlatok\Bridge_App\Bridge_App\obj\Debug\Bridge_App.pdb
+D:\C# gyakorlatok\Bridge_App\Bridge_App\obj\Debug\View\InformationInterfaceViewxaml.g.cs
+D:\C# gyakorlatok\Bridge_App\Bridge_App\obj\Debug\View\MenuView.g.cs
+D:\C# gyakorlatok\Bridge_App\Bridge_App\obj\Debug\View\OperatorView.g.cs
+D:\C# gyakorlatok\Bridge_App\Bridge_App\obj\Debug\GeneratedInternalTypeHelper.g.cs
+D:\C# gyakorlatok\Bridge_App\Bridge_App\obj\Debug\View\InformationInterfaceViewxaml.baml
+D:\C# gyakorlatok\Bridge_App\Bridge_App\obj\Debug\View\OperatorView.baml
+D:\C# gyakorlatok\Bridge_App\Bridge_App\obj\Debug\View\MenuView.baml
+D:\C# gyakorlatok\Bridge_App\Bridge_App\bin\Debug\GalaSoft.MvvmLight.dll
+D:\C# gyakorlatok\Bridge_App\Bridge_App\bin\Debug\GalaSoft.MvvmLight.Extras.dll
+D:\C# gyakorlatok\Bridge_App\Bridge_App\bin\Debug\GalaSoft.MvvmLight.Platform.dll
+D:\C# gyakorlatok\Bridge_App\Bridge_App\bin\Debug\Microsoft.Practices.ServiceLocation.dll
+D:\C# gyakorlatok\Bridge_App\Bridge_App\bin\Debug\System.Windows.Interactivity.dll
+D:\C# gyakorlatok\Bridge_App\Bridge_App\bin\Debug\GalaSoft.MvvmLight.pdb
+D:\C# gyakorlatok\Bridge_App\Bridge_App\bin\Debug\GalaSoft.MvvmLight.xml
+D:\C# gyakorlatok\Bridge_App\Bridge_App\bin\Debug\GalaSoft.MvvmLight.Extras.pdb
+D:\C# gyakorlatok\Bridge_App\Bridge_App\bin\Debug\GalaSoft.MvvmLight.Extras.xml
+D:\C# gyakorlatok\Bridge_App\Bridge_App\bin\Debug\GalaSoft.MvvmLight.Platform.pdb
+D:\C# gyakorlatok\Bridge_App\Bridge_App\bin\Debug\GalaSoft.MvvmLight.Platform.xml
+D:\C# gyakorlatok\Bridge_App\Bridge_App\bin\Debug\Microsoft.Practices.ServiceLocation.pdb
+D:\C# gyakorlatok\Bridge_App\Bridge_App\bin\Debug\Microsoft.Practices.ServiceLocation.xml
+D:\C# gyakorlatok\Bridge_App\Bridge_App\obj\Debug\App.baml
+C:\Users\SASA\Documents\GitHub\FAMILY-AT-THE-BRIDGE\Bridge_App\Bridge_App\bin\Debug\Bridge_App.exe.config
+C:\Users\SASA\Documents\GitHub\FAMILY-AT-THE-BRIDGE\Bridge_App\Bridge_App\obj\Debug\Bridge_App.exe
+C:\Users\SASA\Documents\GitHub\FAMILY-AT-THE-BRIDGE\Bridge_App\Bridge_App\obj\Debug\Bridge_App.pdb
+C:\Users\SASA\Documents\GitHub\FAMILY-AT-THE-BRIDGE\Bridge_App\Bridge_App\bin\Debug\Bridge_App.exe
+C:\Users\SASA\Documents\GitHub\FAMILY-AT-THE-BRIDGE\Bridge_App\Bridge_App\bin\Debug\Bridge_App.pdb
+C:\Users\SASA\Documents\GitHub\FAMILY-AT-THE-BRIDGE\Bridge_App\Bridge_App\bin\Debug\Castle.Core.dll
+C:\Users\SASA\Documents\GitHub\FAMILY-AT-THE-BRIDGE\Bridge_App\Bridge_App\bin\Debug\GalaSoft.MvvmLight.dll
+C:\Users\SASA\Documents\GitHub\FAMILY-AT-THE-BRIDGE\Bridge_App\Bridge_App\bin\Debug\GalaSoft.MvvmLight.Extras.dll
+C:\Users\SASA\Documents\GitHub\FAMILY-AT-THE-BRIDGE\Bridge_App\Bridge_App\bin\Debug\GalaSoft.MvvmLight.Platform.dll
+C:\Users\SASA\Documents\GitHub\FAMILY-AT-THE-BRIDGE\Bridge_App\Bridge_App\bin\Debug\Microsoft.Practices.ServiceLocation.dll
+C:\Users\SASA\Documents\GitHub\FAMILY-AT-THE-BRIDGE\Bridge_App\Bridge_App\bin\Debug\Moq.dll
+C:\Users\SASA\Documents\GitHub\FAMILY-AT-THE-BRIDGE\Bridge_App\Bridge_App\bin\Debug\System.Windows.Interactivity.dll
+C:\Users\SASA\Documents\GitHub\FAMILY-AT-THE-BRIDGE\Bridge_App\Bridge_App\bin\Debug\Castle.Core.xml
+C:\Users\SASA\Documents\GitHub\FAMILY-AT-THE-BRIDGE\Bridge_App\Bridge_App\bin\Debug\GalaSoft.MvvmLight.pdb
+C:\Users\SASA\Documents\GitHub\FAMILY-AT-THE-BRIDGE\Bridge_App\Bridge_App\bin\Debug\GalaSoft.MvvmLight.xml
+C:\Users\SASA\Documents\GitHub\FAMILY-AT-THE-BRIDGE\Bridge_App\Bridge_App\bin\Debug\GalaSoft.MvvmLight.Extras.pdb
+C:\Users\SASA\Documents\GitHub\FAMILY-AT-THE-BRIDGE\Bridge_App\Bridge_App\bin\Debug\GalaSoft.MvvmLight.Extras.xml
+C:\Users\SASA\Documents\GitHub\FAMILY-AT-THE-BRIDGE\Bridge_App\Bridge_App\bin\Debug\GalaSoft.MvvmLight.Platform.pdb
+C:\Users\SASA\Documents\GitHub\FAMILY-AT-THE-BRIDGE\Bridge_App\Bridge_App\bin\Debug\GalaSoft.MvvmLight.Platform.xml
+C:\Users\SASA\Documents\GitHub\FAMILY-AT-THE-BRIDGE\Bridge_App\Bridge_App\bin\Debug\Microsoft.Practices.ServiceLocation.pdb
+C:\Users\SASA\Documents\GitHub\FAMILY-AT-THE-BRIDGE\Bridge_App\Bridge_App\bin\Debug\Microsoft.Practices.ServiceLocation.xml
+C:\Users\SASA\Documents\GitHub\FAMILY-AT-THE-BRIDGE\Bridge_App\Bridge_App\bin\Debug\Moq.xml
+C:\Users\SASA\Documents\GitHub\FAMILY-AT-THE-BRIDGE\Bridge_App\Bridge_App\obj\Debug\Bridge_App.csprojResolveAssemblyReference.cache
+C:\Users\SASA\Documents\GitHub\FAMILY-AT-THE-BRIDGE\Bridge_App\Bridge_App\obj\Debug\MainWindow.g.cs
+C:\Users\SASA\Documents\GitHub\FAMILY-AT-THE-BRIDGE\Bridge_App\Bridge_App\obj\Debug\View\InformationInterfaceViewxaml.g.cs
+C:\Users\SASA\Documents\GitHub\FAMILY-AT-THE-BRIDGE\Bridge_App\Bridge_App\obj\Debug\View\MenuView.g.cs
+C:\Users\SASA\Documents\GitHub\FAMILY-AT-THE-BRIDGE\Bridge_App\Bridge_App\obj\Debug\View\OperatorView.g.cs
+C:\Users\SASA\Documents\GitHub\FAMILY-AT-THE-BRIDGE\Bridge_App\Bridge_App\obj\Debug\App.g.cs
+C:\Users\SASA\Documents\GitHub\FAMILY-AT-THE-BRIDGE\Bridge_App\Bridge_App\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\SASA\Documents\GitHub\FAMILY-AT-THE-BRIDGE\Bridge_App\Bridge_App\obj\Debug\Bridge_App_MarkupCompile.cache
+C:\Users\SASA\Documents\GitHub\FAMILY-AT-THE-BRIDGE\Bridge_App\Bridge_App\obj\Debug\Bridge_App_MarkupCompile.lref
+C:\Users\SASA\Documents\GitHub\FAMILY-AT-THE-BRIDGE\Bridge_App\Bridge_App\obj\Debug\App.baml
+C:\Users\SASA\Documents\GitHub\FAMILY-AT-THE-BRIDGE\Bridge_App\Bridge_App\obj\Debug\MainWindow.baml
+C:\Users\SASA\Documents\GitHub\FAMILY-AT-THE-BRIDGE\Bridge_App\Bridge_App\obj\Debug\View\InformationInterfaceViewxaml.baml
+C:\Users\SASA\Documents\GitHub\FAMILY-AT-THE-BRIDGE\Bridge_App\Bridge_App\obj\Debug\View\MenuView.baml
+C:\Users\SASA\Documents\GitHub\FAMILY-AT-THE-BRIDGE\Bridge_App\Bridge_App\obj\Debug\View\OperatorView.baml
+C:\Users\SASA\Documents\GitHub\FAMILY-AT-THE-BRIDGE\Bridge_App\Bridge_App\obj\Debug\Bridge_App.g.resources
+C:\Users\SASA\Documents\GitHub\FAMILY-AT-THE-BRIDGE\Bridge_App\Bridge_App\obj\Debug\Bridge_App.Properties.Resources.resources
+C:\Users\SASA\Documents\GitHub\FAMILY-AT-THE-BRIDGE\Bridge_App\Bridge_App\obj\Debug\Bridge_App.csproj.GenerateResource.Cache
+D:\C# gyakorlatok\Bridge_App\Bridge_App\bin\Debug\Castle.Core.dll
+D:\C# gyakorlatok\Bridge_App\Bridge_App\bin\Debug\Moq.dll
+D:\C# gyakorlatok\Bridge_App\Bridge_App\bin\Debug\Castle.Core.xml
+D:\C# gyakorlatok\Bridge_App\Bridge_App\bin\Debug\Moq.xml
+D:\C# gyakorlatok\Bridge_App\Bridge_App\obj\Debug\Bridge_App_Content.g.cs
+D:\C# gyakorlatok\Bridge_App\Bridge_App\bin\Debug\xunit.abstractions.dll
+D:\C# gyakorlatok\Bridge_App\Bridge_App\bin\Debug\xunit.runner.visualstudio.testadapter.dll
+D:\C# gyakorlatok\Bridge_App\Bridge_App\bin\Debug\xunit.runner.utility.desktop.dll
+D:\C# gyakorlatok\Bridge_App\Bridge_App\bin\Debug\xunit.assert.dll
+D:\C# gyakorlatok\Bridge_App\Bridge_App\bin\Debug\xunit.core.dll
+D:\C# gyakorlatok\Bridge_App\Bridge_App\bin\Debug\xunit.execution.desktop.dll
+D:\C# gyakorlatok\Bridge_App\Bridge_App\bin\Debug\xunit.assert.pdb
+D:\C# gyakorlatok\Bridge_App\Bridge_App\bin\Debug\xunit.assert.xml
+D:\C# gyakorlatok\Bridge_App\Bridge_App\bin\Debug\xunit.core.pdb
+D:\C# gyakorlatok\Bridge_App\Bridge_App\bin\Debug\xunit.core.xml
+D:\C# gyakorlatok\Bridge_App\Bridge_App\bin\Debug\xunit.execution.desktop.pdb
+D:\C# gyakorlatok\Bridge_App\Bridge_App\bin\Debug\xunit.execution.desktop.xml
+D:\C# gyakorlatok\Bridge_App\Bridge_App\obj\Debug\Bridge_App.csprojResolveAssemblyReference.cache
