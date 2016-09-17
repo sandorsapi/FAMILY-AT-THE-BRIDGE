@@ -9,6 +9,7 @@ using System.Threading;
 using System.Windows;
 using System;
 using System.Collections.Generic;
+using static People.People;
 
 namespace Bridge_App.ViewModel
 {
@@ -65,7 +66,7 @@ namespace Bridge_App.ViewModel
             {
                 foreach (var peopleItem in this.operatorViewModel.People)
                 {
-                    this.evaluationAndSolution.BasedMembers.Add(new People
+                    this.evaluationAndSolution.BasedMembers.Add(new Peoples
                     {
                        movedTime = peopleItem.movedTime,
                        peopleName = peopleItem.peopleName
@@ -110,7 +111,7 @@ namespace Bridge_App.ViewModel
         /// </summary>
         /// <param name="list"></param>
         /// <returns>StringBuilder text</returns>
-        private StringBuilder WriteToStringBuilder(ObservableCollection<People> list)
+        private StringBuilder WriteToStringBuilder(ObservableCollection<Peoples> list)
         {
             StringBuilder sb = new StringBuilder();
             if (list != null)

@@ -1,17 +1,18 @@
 ﻿using System.Collections.Generic;
+using static People.People;
 
 namespace Bridge_App.Interface
 {
     public interface IEvaluationAndSolution
     {
-        void ReturnMoved(List<People> leftMembers, List<People> rightMembers);
+        void ReturnMoved(List<Peoples> leftMembers, List<Peoples> rightMembers);
 
-        void MovedTwoMemberMin(List<People> leftMembers, List<People> rightMembers);
+        void MovedTwoMemberMin(List<Peoples> leftMembers, List<Peoples> rightMembers);
 
-        void MovedTwoMemberMax(List<People> leftMembers, List<People> rightMembers);
+        void MovedTwoMemberMax(List<Peoples> leftMembers, List<Peoples> rightMembers);
 
-        void MovedTwoMemberBetween(List<People> leftMembers, List<People> rightMembers);
+        void MovedTwoMemberBetween(List<Peoples> leftMembers, List<Peoples> rightMembers);
 
-        List<People> PeopleValue(List<People> people);
+        List<Peoples> PeopleValue(List<Peoples> people);
     }
 }

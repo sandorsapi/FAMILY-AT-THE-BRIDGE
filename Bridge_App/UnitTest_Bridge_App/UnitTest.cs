@@ -3,6 +3,7 @@ using Bridge_App.Interface;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
 using System.Collections.Generic;
+using static People.People;
 
 namespace UnitTest
 {
@@ -16,25 +17,25 @@ namespace UnitTest
             var moqMinimumValue = new Mock<IEvaluationAndSolution>();
             var moqpeopleValueRepository = new Mock<IPeopleRepository>();
 
-            List<People> peoplesValue = new List<People>();
-            List<People> left = new List<People>();
+            List<Peoples> peoplesValue = new List<Peoples>();
+            List<Peoples> left = new List<Peoples>();
 
             peoplesValue.Add(
-                new People
+                new Peoples
                 {
                     peopleName = "Flinn",
                     movedTime = 2
                 });
 
             peoplesValue.Add(
-                new People
+                new Peoples
                 {
                     peopleName = "Susan",
                     movedTime = 12
                 });
 
             peoplesValue.Add(
-               new People
+               new Peoples
                {
                    peopleName = "Alex",
                    movedTime = 6
@@ -58,25 +59,25 @@ namespace UnitTest
             var moqBetweenValue = new Mock<IEvaluationAndSolution>();
             var moqpeopleValueRepository = new Mock<IPeopleRepository>();
 
-            List<People> peoplesValue = new List<People>();
-            List<People> left = new List<People>();
+            List<Peoples> peoplesValue = new List<Peoples>();
+            List<Peoples> left = new List<Peoples>();
 
             peoplesValue.Add(
-                new People
+                new Peoples
                 {
                     peopleName = "Flinn",
                     movedTime = 2
                 });
 
             peoplesValue.Add(
-                new People
+                new Peoples
                 {
                     peopleName = "Susan",
                     movedTime = 12
                 });
 
             peoplesValue.Add(
-               new People
+               new Peoples
                {
                    peopleName = "Alex",
                    movedTime = 6
@@ -100,25 +101,25 @@ namespace UnitTest
             var moqMinimumValue = new Mock<IEvaluationAndSolution>();
             var moqpeopleValueRepository = new Mock<IPeopleRepository>();
 
-            List<People> peoplesValue = new List<People>();
-            List<People> left = new List<People>();
+            List<Peoples> peoplesValue = new List<Peoples>();
+            List<Peoples> left = new List<Peoples>();
 
             peoplesValue.Add(
-                new People
+                new Peoples
                 {
                     peopleName = "Flinn",
                     movedTime = 2
                 });
 
             peoplesValue.Add(
-                new People
+                new Peoples
                 {
                     peopleName = "Susan",
                     movedTime = 12
                 });
 
             peoplesValue.Add(
-               new People
+               new Peoples
                {
                    peopleName = "Alex",
                    movedTime = 6
@@ -142,25 +143,25 @@ namespace UnitTest
             var moqMaximumValue = new Mock<IEvaluationAndSolution>();
             var moqpeopleValueRepository = new Mock<IPeopleRepository>();
 
-            List<People> peoplesValue = new List<People>();
-            List<People> left = new List<People>();
+            List<Peoples> peoplesValue = new List<Peoples>();
+            List<Peoples> left = new List<Peoples>();
 
             peoplesValue.Add(
-                new People
+                new Peoples
                 {
                     peopleName = "Flinn",
                     movedTime = 2
                 });
 
             peoplesValue.Add(
-                new People
+                new Peoples
                 {
                     peopleName = "Susan",
                     movedTime = 12
                 });
 
             peoplesValue.Add(
-               new People
+               new Peoples
                {
                    peopleName = "Alex",
                    movedTime = 6

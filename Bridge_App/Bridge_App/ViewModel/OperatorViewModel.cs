@@ -8,6 +8,7 @@ using System.IO;
 using System.Text;
 using System.Threading;
 using System.Windows;
+using static People.People;
 
 namespace Bridge_App.ViewModel
 {
@@ -28,7 +29,7 @@ namespace Bridge_App.ViewModel
 
         private string peopleListFileName = ConfigurationManager.AppSettings["peopleListFileName"];        
 
-        public ObservableCollection<People> People { get; private set; } = new ObservableCollection<People>();
+        public ObservableCollection<Peoples> People { get; private set; } = new ObservableCollection<Peoples>();
         public List<long> peopleMovedTimeList = new List<long>();
 
         public OperatorViewModel()
@@ -214,7 +215,7 @@ namespace Bridge_App.ViewModel
         //Manual fill to People list
         private void FillPepoleNameAndValue(long peopleNumber)
         {
-            this.People.Add(new People
+            this.People.Add(new Peoples
             {
                 peopleName = RandomChar(peopleNumber),
                 movedTime = peopleNumber
@@ -230,7 +231,7 @@ namespace Bridge_App.ViewModel
             {
                 foreach (var item in list)
                 {
-                    this.People.Add(new People
+                    this.People.Add(new Peoples
                     {
                         peopleName = RandomChar(item),
                         movedTime = item
@@ -249,7 +250,7 @@ namespace Bridge_App.ViewModel
                 {
                     foreach (var item in this.fileReadOrWrite.ReadFile())
                     {
-                        this.People.Add(new People
+                        this.People.Add(new Peoples
                         {
                             peopleName = item.peopleName,
                             movedTime = Convert.ToInt64(item.movedTime)

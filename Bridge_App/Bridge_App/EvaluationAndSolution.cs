@@ -1,10 +1,11 @@
-﻿using Bridge_App;
-using Bridge_App.Interface;
+﻿using Bridge_App.Interface;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Windows;
+using TwoMinimumValueMoved;
+using static People.People;
 
 namespace Bridge_App
 {
@@ -17,9 +18,11 @@ namespace Bridge_App
         private long step = 1;
         private int progressStep = 0;
         private StringBuilder solutionText = new StringBuilder();
-        private List<People> basedMembers = new List<People>();
-        private List<People> rightMembers = new List<People>();
-        private List<People> leftMembers = new List<People>();
+        private List<Peoples> basedMembers = new List<Peoples>();
+        private List<Peoples> rightMembers = new List<Peoples>();
+        private List<Peoples> leftMembers = new List<Peoples>();
+
+        private TwoMinimumValueMoved<Peoples> minimumMoved;
 
         public EvaluationAndSolution(IEvaluationAndSolution evaluationAndSolution, IPeopleRepository peopleRepository)
         {
@@ -27,9 +30,11 @@ namespace Bridge_App
             this._peopleRepository = peopleRepository;
         }
 
-        public EvaluationAndSolution() { }
+        public EvaluationAndSolution()
+        {            
+        }
 
-        public List<People> BasedMembers
+        public List<Peoples> BasedMembers
         {
             get { return basedMembers; }
             set { basedMembers = value; }
@@ -61,7 +66,10 @@ namespace Bridge_App
                 //First step
                 if (step == 1)
                 {
-                    MovedTwoMemberMin(this.leftMembers, this.rightMembers);
+                    //This  method get from dll
+                    minimumMoved = new TwoMinimumValueMoved<Peoples>(leftMembers, rightMembers, ref this.runTime);
+                    this.SolutionText.AppendLine(minimumMoved.StringText);
+                    //MovedTwoMemberMin(this.leftMembers, this.rightMembers);
                     this.step++;
                     this.progressStep++;
                 }
@@ -125,11 +133,11 @@ namespace Bridge_App
 
         
         //The best speed people return moved result
-        private void ReturnMoved(List<People> leftMembers, List<People> rightMembers)
+        private void ReturnMoved(List<Peoples> leftMembers, List<Peoples> rightMembers)
         {
             long time = 0;
             string name = null;
-            rightMembers.Add(new People
+            rightMembers.Add(new Peoples
             {
                 movedTime = leftMembers.Min(m => m.movedTime),
                 peopleName = leftMembers.Find(f => f.movedTime == leftMembers.Min(m => m.movedTime)).peopleName
@@ -144,7 +152,7 @@ namespace Bridge_App
 
        
         //Extremes members
-        private void MovedTwoMemberBetween(List<People> leftMembers, List<People> rightMembers)
+        private void MovedTwoMemberBetween(List<Peoples> leftMembers, List<Peoples> rightMembers)
         {
             try
             {
@@ -158,7 +166,7 @@ namespace Bridge_App
                 {
                     if (k == 0)
                     {
-                        leftMembers.Add(new People
+                        leftMembers.Add(new Peoples
                         {
                             movedTime = rightMembers.Max(m => m.movedTime),
                             peopleName = rightMembers.Find(f => f.movedTime == rightMembers.Max(m => m.movedTime)).peopleName
@@ -171,7 +179,7 @@ namespace Bridge_App
                     }
                     else
                     {
-                        leftMembers.Add(new People
+                        leftMembers.Add(new Peoples
                         {
                             movedTime = rightMembers.Min(m => m.movedTime),
                             peopleName = rightMembers.Find(f => f.movedTime == rightMembers.Min(m => m.movedTime)).peopleName
@@ -191,7 +199,7 @@ namespace Bridge_App
         }
 
         //Find the lowest values
-        private void MovedTwoMemberMin(List<People> leftMembers, List<People> rightMembers)
+        private void MovedTwoMemberMin(List<Peoples> leftMembers, List<Peoples> rightMembers)
         {
             try
             {
@@ -205,7 +213,7 @@ namespace Bridge_App
                 {
                     if (k == 0)
                     {
-                        leftMembers.Add(new People
+                        leftMembers.Add(new Peoples
                         {
                             movedTime = rightMembers.Min(m => m.movedTime),
                             peopleName = rightMembers.Find(f => f.movedTime == rightMembers.Min(m => m.movedTime)).peopleName
@@ -218,7 +226,7 @@ namespace Bridge_App
                     }
                     else
                     {                   
-                        leftMembers.Add(new People
+                        leftMembers.Add(new Peoples
                         {
                             movedTime = rightMembers.Min(m => m.movedTime),
                             peopleName = rightMembers.Find(f => f.movedTime == rightMembers.Min(m => m.movedTime)).peopleName
@@ -240,7 +248,7 @@ namespace Bridge_App
 
         
         //Find highest value
-        private void MovedTwoMemberMax(List<People> leftMembers, List<People> rightMembers)
+        private void MovedTwoMemberMax(List<Peoples> leftMembers, List<Peoples> rightMembers)
         {
             try
             {
@@ -254,7 +262,7 @@ namespace Bridge_App
                 {
                     if (k == 0)
                     {
-                        leftMembers.Add(new People
+                        leftMembers.Add(new Peoples
                         {
                             movedTime = rightMembers.Max(m => m.movedTime),
                             peopleName = rightMembers.Find(f => f.movedTime == rightMembers.Max(m => m.movedTime)).peopleName
@@ -267,7 +275,7 @@ namespace Bridge_App
                     }
                     else
                     {
-                        leftMembers.Add(new People
+                        leftMembers.Add(new Peoples
                         {
                             movedTime = rightMembers.Max(m => m.movedTime),
                             peopleName = rightMembers.Find(f => f.movedTime == rightMembers.Max(m => m.movedTime)).peopleName
@@ -306,9 +314,9 @@ namespace Bridge_App
         }
 
         //Create test data
-        public void CreateTestValue(List<People> people)
+        public void CreateTestValue(List<Peoples> people)
         {
-            List<People> peopels = new List<People>();
+            List<Peoples> peopels = new List<Peoples>();
 
             peopels.AddRange(_evaluationAndSolution.PeopleValue(people));
      
