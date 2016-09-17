@@ -1,8 +1,18 @@
-Moved: D(4), A(1) - Moved time: 4 - Run time 31
-Return: A(1) - Moved time: 1 - Run time 34
-Moved: AD(14), I(9) - Moved time: 14 - Run time 20
-Return: D(4) - Moved time: 4 - Run time 16
-Moved: G(7), D(4) - Moved time: 7 - Run time 9
-Return: D(4) - Moved time: 4 - Run time 5
-Moved: D(4), A(1) - Moved time: 4 - Run time 1
-Result: Full time 35 - Run time 34s - The rest time 1s 
+Moved: E(5), A(1) - Moved time: 5 - Run time 155
+Return: A(1) - Moved time: 1 - Run time 154
+Moved: BG(27), BF(26) - Moved time: 27 - Run time 127
+Return: E(5) - Moved time: 5 - Run time 122
+Moved: E(5), A(1) - Moved time: 5 - Run time 117
+Return: A(1) - Moved time: 1 - Run time 116
+Moved: I(9), A(1) - Moved time: 9 - Run time 107
+Return: A(1) - Moved time: 1 - Run time 106
+Moved: AA(11), A(1) - Moved time: 11 - Run time 95
+Return: A(1) - Moved time: 1 - Run time 94
+Moved: AF(16), A(1) - Moved time: 16 - Run time 78
+Return: A(1) - Moved time: 1 - Run time 77
+Moved: AI(19), A(1) - Moved time: 19 - Run time 58
+Return: A(1) - Moved time: 1 - Run time 57
+Moved: BE(25), BA(21) - Moved time: 25 - Run time 32
+Return: E(5) - Moved time: 5 - Run time 27
+Moved: E(5), A(1) - Moved time: 5 - Run time 22
+Result: Full time 160 - Run time 138s - The rest time 22s 

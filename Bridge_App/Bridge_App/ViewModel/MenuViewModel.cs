@@ -131,7 +131,7 @@ namespace Bridge_App.ViewModel
             for (int i = 0; i < 100; i++)
             {
                 this.ProgressValue = i;
-                Thread.Sleep(50);
+                Thread.Sleep(10);
             }
             this.ProgressValue = 0;
         }
