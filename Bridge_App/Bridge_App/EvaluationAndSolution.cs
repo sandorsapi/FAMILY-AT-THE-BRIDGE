@@ -81,13 +81,6 @@ namespace Bridge_App
                     this.progressStep++;
                 }
 
-                if (step == 3)
-                {
-                    MovedTwoMemberMax(this.leftMembers, this.rightMembers);
-                    this.step++;
-                    this.progressStep++;
-                }
-
                 //More moved
                 if (this.step % 2 >= 1)
                 {
