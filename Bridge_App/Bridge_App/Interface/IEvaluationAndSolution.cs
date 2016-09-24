@@ -11,8 +11,6 @@ namespace Bridge_App.Interface
 
         void MovedTwoMemberMax(List<Peoples> leftMembers, List<Peoples> rightMembers);
 
-        void MovedTwoMemberBetween(List<Peoples> leftMembers, List<Peoples> rightMembers);
-
         List<Peoples> PeopleValue(List<Peoples> people);
     }
 }

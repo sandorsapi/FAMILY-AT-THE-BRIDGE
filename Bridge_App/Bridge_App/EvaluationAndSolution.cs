@@ -31,7 +31,7 @@ namespace Bridge_App
         }
 
         public EvaluationAndSolution()
-        {            
+        {
         }
 
         public List<Peoples> BasedMembers
@@ -51,7 +51,6 @@ namespace Bridge_App
             get { return progressStep; }
         }
 
-        
         //Optimalization
         public void Solution()
         {
@@ -92,7 +91,7 @@ namespace Bridge_App
                 //More moved
                 if (this.step % 2 >= 1)
                 {
-                    if (!ValueContentCheck())
+                    if (ValueContentCheck())
                     {
                         if (this.rightMembers.Count == 3)
                         {
@@ -109,18 +108,9 @@ namespace Bridge_App
                     }
                     else
                     {
-                        if (this.rightMembers.Count == 3)
-                        {
-                            MovedTwoMemberMax(this.leftMembers, this.rightMembers);
-                            this.step++;
-                            this.progressStep++;
-                        }
-                        else
-                        {
-                            MovedTwoMemberBetween(this.leftMembers, this.rightMembers);
-                            this.step++;
-                            this.progressStep++;
-                        }
+                        MovedTwoMemberMax(this.leftMembers, this.rightMembers);
+                        this.step++;
+                        this.progressStep++;
                     }
                 }
             }
@@ -131,7 +121,6 @@ namespace Bridge_App
             this.leftMembers.Clear();
         }
 
-        
         //The best speed people return moved result
         private void ReturnMoved(List<Peoples> leftMembers, List<Peoples> rightMembers)
         {
@@ -147,55 +136,7 @@ namespace Bridge_App
             this.runTime = this.runTime - leftMembers.Min(m => m.movedTime);
             this.solutionText.AppendLine(string.Format("Return: {0}({1}) - Moved time: {2} - Run time {3}", name, time, time, this.runTime));
             var a = leftMembers.FindIndex(f => f.movedTime == time);
-            leftMembers.RemoveAt(a);         
-        }
-
-       
-        //Extremes members
-        private void MovedTwoMemberBetween(List<Peoples> leftMembers, List<Peoples> rightMembers)
-        {
-            try
-            {
-                long time1 = 0;
-                long time2 = 0;
-
-                string name1 = null;
-                string name2 = null;
-
-                for (int k = 0; k < 2; k++)
-                {
-                    if (k == 0)
-                    {
-                        leftMembers.Add(new Peoples
-                        {
-                            movedTime = rightMembers.Max(m => m.movedTime),
-                            peopleName = rightMembers.Find(f => f.movedTime == rightMembers.Max(m => m.movedTime)).peopleName
-                        });
-                        time1 = rightMembers.Max(m => m.movedTime);
-                        name1 = rightMembers.Find(f => f.movedTime == time1).peopleName;
-                        this.runTime = this.runTime - rightMembers.Max(m => m.movedTime);
-                        var a = rightMembers.FindIndex(f => f.movedTime == time1);
-                        rightMembers.RemoveAt(a);
-                    }
-                    else
-                    {
-                        leftMembers.Add(new Peoples
-                        {
-                            movedTime = rightMembers.Min(m => m.movedTime),
-                            peopleName = rightMembers.Find(f => f.movedTime == rightMembers.Min(m => m.movedTime)).peopleName
-                        });
-                        time2 = rightMembers.Min(m => m.movedTime);
-                        name2 = rightMembers.Find(f => f.movedTime == time2).peopleName;
-                        var a = rightMembers.FindIndex(f => f.movedTime == time2);
-                        rightMembers.RemoveAt(a);
-                    }
-                }
-                this.solutionText.AppendLine(string.Format("Moved: {0}({1}), {2}({3}) - Moved time: {4} - Run time {5}", name1, time1, name2, time2, time1, this.runTime));
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Run time error!", "ERROR", MessageBoxButton.OK, MessageBoxImage.Error);
-            }
+            leftMembers.RemoveAt(a);
         }
 
         //Find the lowest values
@@ -217,7 +158,6 @@ namespace Bridge_App
                         {
                             movedTime = rightMembers.Min(m => m.movedTime),
                             peopleName = rightMembers.Find(f => f.movedTime == rightMembers.Min(m => m.movedTime)).peopleName
-
                         });
                         time1 = rightMembers.Min(m => m.movedTime);
                         name1 = rightMembers.Find(f => f.movedTime == time1).peopleName;
@@ -225,14 +165,14 @@ namespace Bridge_App
                         rightMembers.RemoveAt(a);
                     }
                     else
-                    {                   
+                    {
                         leftMembers.Add(new Peoples
                         {
                             movedTime = rightMembers.Min(m => m.movedTime),
                             peopleName = rightMembers.Find(f => f.movedTime == rightMembers.Min(m => m.movedTime)).peopleName
-                    });
+                        });
                         time2 = rightMembers.Min(m => m.movedTime);
-                        name2 = rightMembers.Find(f =>f.movedTime == time2).peopleName;
+                        name2 = rightMembers.Find(f => f.movedTime == time2).peopleName;
                         this.runTime = this.runTime - rightMembers.Min(m => m.movedTime);
                         var a = rightMembers.FindIndex(f => f.movedTime == time2);
                         rightMembers.RemoveAt(a);
@@ -246,7 +186,6 @@ namespace Bridge_App
             }
         }
 
-        
         //Find highest value
         private void MovedTwoMemberMax(List<Peoples> leftMembers, List<Peoples> rightMembers)
         {
@@ -286,7 +225,7 @@ namespace Bridge_App
                         rightMembers.RemoveAt(a);
                     }
                 }
-                this.solutionText.AppendLine(string.Format("Moved: {0}({1}), {2}({3}) - Moved time: {4} - Run time {5}", name1, time1, name2, time2, time1, this.runTime));                
+                this.solutionText.AppendLine(string.Format("Moved: {0}({1}), {2}({3}) - Moved time: {4} - Run time {5}", name1, time1, name2, time2, time1, this.runTime));
             }
             catch (Exception ex)
             {
@@ -294,20 +233,29 @@ namespace Bridge_App
             }
         }
 
-        //Checked list Content 
+        //Checked list Content
         private bool ValueContentCheck()
         {
             bool compare = false;
+            int contentIndex = 0;
+
             foreach (var rightItem in this.rightMembers)
             {
-                if (rightItem.movedTime.Equals(this.basedMembers[0].movedTime) && (rightItem.movedTime.Equals(this.basedMembers[1].movedTime)))
+                for (int i = 0; i < 2; i++)
                 {
-                    compare = true;
-                    break;
-                }
-                else
-                {
-                    compare = false;
+                    if (rightItem.movedTime == this.basedMembers[i].movedTime)
+                    {
+                        contentIndex++;
+                    }
+                    if (contentIndex == 2)
+                    {
+                        compare = true;
+                        break;
+                    }
+                    else
+                    {
+                        compare = false;
+                    }
                 }
             }
             return compare;
@@ -322,7 +270,7 @@ namespace Bridge_App
             StringBuilder sb = new StringBuilder();
 
             peopels.AddRange(_evaluationAndSolution.PeopleValue(people));
-     
+
             if (peopels.Count == 0)
             {
                 throw new InvalidPeopleValueException();
