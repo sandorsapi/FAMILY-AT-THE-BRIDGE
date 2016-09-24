@@ -21,7 +21,7 @@ namespace Bridge_App.ViewModel
         private FileReadOrWrite fileReadOrWrite;
         private int progressValue;
         private bool runEnabled;
-        Thread th;
+        private Thread th;
 
         private string solutionTextFileName = ConfigurationManager.AppSettings["solutionFileName"];
 
@@ -50,6 +50,7 @@ namespace Bridge_App.ViewModel
                 this.operatorViewModel.ProgressBarThread.Abort();
                 MessageBox.Show("Run abort", "Information", MessageBoxButton.OK, MessageBoxImage.Information);
                 this.ProgressValue = 0;
+                th = null;
             }          
         }
 
@@ -136,7 +137,7 @@ namespace Bridge_App.ViewModel
             this.ProgressValue = 0;
         }
 
-        //Solution text write to file
+        //Solution text read from file
         private void SolutionTextReadFromFile()
         {
             StringBuilder sb = new StringBuilder();

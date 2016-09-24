@@ -34,8 +34,8 @@
                    Grid.Column="0"
                    Content="People number:" />
             <Label Grid.Row="2"
-                   Grid.Column="0"
-                   Margin="5"
+                   Grid.Column="0"                 
+                   HorizontalAlignment="Left"
                    Content="Random time:"
                    Visibility="{Binding RandomTextBoxVisibility}" />
         </Grid>

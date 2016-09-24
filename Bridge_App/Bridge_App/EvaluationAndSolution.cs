@@ -92,7 +92,7 @@ namespace Bridge_App
                 //More moved
                 if (this.step % 2 >= 1)
                 {
-                    if (ValueContentCheck())
+                    if (!ValueContentCheck())
                     {
                         if (this.rightMembers.Count == 3)
                         {
@@ -111,13 +111,13 @@ namespace Bridge_App
                     {
                         if (this.rightMembers.Count == 3)
                         {
-                            MovedTwoMemberBetween(this.leftMembers, this.rightMembers);
+                            MovedTwoMemberMax(this.leftMembers, this.rightMembers);
                             this.step++;
                             this.progressStep++;
                         }
                         else
                         {
-                            MovedTwoMemberMax(this.leftMembers, this.rightMembers);
+                            MovedTwoMemberBetween(this.leftMembers, this.rightMembers);
                             this.step++;
                             this.progressStep++;
                         }
@@ -300,7 +300,7 @@ namespace Bridge_App
             bool compare = false;
             foreach (var rightItem in this.rightMembers)
             {
-                if (rightItem.movedTime.Equals(this.basedMembers[0].movedTime) || (rightItem.movedTime.Equals(this.basedMembers[1].movedTime)))
+                if (rightItem.movedTime.Equals(this.basedMembers[0].movedTime) && (rightItem.movedTime.Equals(this.basedMembers[1].movedTime)))
                 {
                     compare = true;
                     break;
@@ -317,12 +317,25 @@ namespace Bridge_App
         public void CreateTestValue(List<Peoples> people)
         {
             List<Peoples> peopels = new List<Peoples>();
+            List<Peoples> left = new List<Peoples>();
+
+            StringBuilder sb = new StringBuilder();
 
             peopels.AddRange(_evaluationAndSolution.PeopleValue(people));
      
             if (peopels.Count == 0)
             {
                 throw new InvalidPeopleValueException();
+            }
+            else
+            {
+                this.MovedTwoMemberMax(left, people);
+
+                foreach (var item in left)
+                {
+                    sb.AppendLine(item.movedTime.ToString());
+                }
+                MessageBox.Show(string.Format("Test result return moved methode; {0}", sb.ToString()), "Result", MessageBoxButton.OK, MessageBoxImage.None);
             }
 
             _peopleRepository.Save(peopels);

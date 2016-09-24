@@ -20,37 +20,37 @@ namespace UnitTest
             List<Peoples> peoplesValue = new List<Peoples>();
             List<Peoples> left = new List<Peoples>();
 
-            peoplesValue.Add(
+            left.Add(
                 new Peoples
                 {
                     peopleName = "Flinn",
                     movedTime = 2
                 });
 
-            peoplesValue.Add(
+            left.Add(
                 new Peoples
                 {
                     peopleName = "Susan",
                     movedTime = 12
                 });
 
-            peoplesValue.Add(
+            left.Add(
                new Peoples
                {
                    peopleName = "Alex",
                    movedTime = 6
                });
 
-            moqMinimumValue.Setup(x => x.PeopleValue(peoplesValue))
-           .Returns(() => peoplesValue);
+            moqMinimumValue.Setup(x => x.PeopleValue(left))
+           .Returns(() => left);
 
             var evaluationAndSolution = new EvaluationAndSolution(moqMinimumValue.Object, moqpeopleValueRepository.Object);
 
             //Act
-            evaluationAndSolution.CreateTestValue(peoplesValue);
+            evaluationAndSolution.CreateTestValue(left);
 
             //Assert
-            moqMinimumValue.Verify(v => v.ReturnMoved(left, peoplesValue), Times.Never);
+            moqMinimumValue.Verify(v => v.ReturnMoved(left, peoplesValue), Times.Never );
         }
 
         [TestMethod]
