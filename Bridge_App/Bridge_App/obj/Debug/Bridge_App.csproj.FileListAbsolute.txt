@@ -89,7 +89,3 @@ D:\C# gyakorlatok\Bridge_App\Bridge_App\bin\Debug\xunit.core.xml
 D:\C# gyakorlatok\Bridge_App\Bridge_App\bin\Debug\xunit.execution.desktop.pdb
 D:\C# gyakorlatok\Bridge_App\Bridge_App\bin\Debug\xunit.execution.desktop.xml
 D:\C# gyakorlatok\Bridge_App\Bridge_App\obj\Debug\Bridge_App.csprojResolveAssemblyReference.cache
-D:\C# gyakorlatok\Bridge_App\Bridge_App\bin\Debug\TwoMinimumValueMoved.dll
-D:\C# gyakorlatok\Bridge_App\Bridge_App\bin\Debug\TwoMinimumValueMoved.pdb
-D:\C# gyakorlatok\Bridge_App\Bridge_App\bin\Debug\People.dll
-D:\C# gyakorlatok\Bridge_App\Bridge_App\bin\Debug\People.pdb

@@ -1,5 +1,4 @@
-﻿using Bridge_App.Interface;
-using GalaSoft.MvvmLight;
+﻿using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
 using System.Collections.ObjectModel;
 using System.Configuration;
@@ -7,9 +6,6 @@ using System.IO;
 using System.Text;
 using System.Threading;
 using System.Windows;
-using System;
-using System.Collections.Generic;
-using static People.People;
 
 namespace Bridge_App.ViewModel
 {
@@ -20,8 +16,12 @@ namespace Bridge_App.ViewModel
         private EvaluationAndSolution evaluationAndSolution;
         private FileReadOrWrite fileReadOrWrite;
         private int progressValue;
+        private int progressBarMax;
         private bool runEnabled;
-        private Thread th;
+        private bool stopEnabled;
+
+        private Thread solutionThread;
+        private Thread progressBarThread;
 
         private string solutionTextFileName = ConfigurationManager.AppSettings["solutionFileName"];
 
@@ -36,7 +36,21 @@ namespace Bridge_App.ViewModel
 
             this.SolutionTextReadFromFile();
 
-            this.RunEnabled = true;
+            this.progressBarMax = 100;
+
+            this.evaluationAndSolution.PropertyChanged += (s, e) => this.ProgressValue = this.evaluationAndSolution.ProgressStep;
+            this.operatorViewModel.PropertyChanged += (s, e) => this.RunEnabled = this.operatorViewModel.RunButtonEnabled;
+
+            if (this.operatorViewModel.People.Count < 3)
+            {
+                this.RunEnabled = false;
+            }
+            else
+            {
+                this.RunEnabled = true;
+            }
+
+            this.StopEnabled = false;
         }
 
         public RelayCommand StopCommand { get; private set; }
@@ -44,14 +58,13 @@ namespace Bridge_App.ViewModel
         //Threads stop
         private void Stop()
         {
-            if (th != null)
-            {
-                th.Abort();
-                this.operatorViewModel.ProgressBarThread.Abort();
-                MessageBox.Show("Run abort", "Information", MessageBoxButton.OK, MessageBoxImage.Information);
-                this.ProgressValue = 0;
-                th = null;
-            }          
+            this.solutionThread.Abort();
+            this.progressBarThread.Abort();
+            MessageBox.Show("Run abort", "Information", MessageBoxButton.OK, MessageBoxImage.Information);
+            this.StopEnabled = false;
+            this.ProgressValue = 0;
+            this.evaluationAndSolution.ProgressStep = 0;
+            this.RunEnabled = true;
         }
 
         public RelayCommand RunCommand { get; private set; }
@@ -59,33 +72,55 @@ namespace Bridge_App.ViewModel
         //Solution run
         private void Run()
         {
-            fileReadOrWrite = new FileReadOrWrite(WriteToStringBuilder(this.operatorViewModel.People));
-
-            this.evaluationAndSolution.BasedMembers.Clear();
-
-            if (this.operatorViewModel.People.Count != 0)
+            if (this.operatorViewModel.People.Count >= 3)
             {
-                foreach (var peopleItem in this.operatorViewModel.People)
+                this.StopEnabled = true;
+
+                this.InformationInterfaceViewModel.SolutionText = null;
+
+                fileReadOrWrite = new FileReadOrWrite(WriteToStringBuilder(this.operatorViewModel.People));
+
+                this.evaluationAndSolution.BasedMembers.Clear();
+
+                if (this.operatorViewModel.People.Count != 0)
                 {
-                    this.evaluationAndSolution.BasedMembers.Add(new Peoples
+                    foreach (var peopleItem in this.operatorViewModel.People)
                     {
-                       movedTime = peopleItem.movedTime,
-                       peopleName = peopleItem.peopleName
-                    });
+                        this.evaluationAndSolution.BasedMembers.Add(new People
+                        {
+                            movedTime = peopleItem.movedTime,
+                            peopleName = peopleItem.peopleName
+                        });
+                    }
                 }
+
+                this.solutionThread = new Thread(new ThreadStart(this.SolutionRun));
+                this.progressBarThread = new Thread(new ThreadStart(this.ProgressBarRun));
+                this.solutionThread.Start();
+                this.progressBarThread.Start();
+                this.RunEnabled = false;
+                this.operatorViewModel.RunButtonEnabled = false;
             }
-
-            th = new Thread(new ThreadStart(this.SolutionRun));
-            th.Start();
-
-            this.operatorViewModel.ProgressBarThread = new Thread(new ThreadStart(this.ProgressBarRun));
-            this.operatorViewModel.ProgressBarThread.Start();
+            else
+            {
+                MessageBox.Show("The process can not run!", "Information", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
         }
 
         public int ProgressValue
         {
             get { return progressValue; }
-            set { Set(nameof(ProgressValue), ref progressValue, value); }
+            set
+            {
+                Set(nameof(ProgressValue), ref progressValue, value);
+                Thread.Sleep(50);
+            }
+        }
+
+        public int ProgressBarMax
+        {
+            get { return progressBarMax; }
+            set { Set(nameof(ProgressBarMax), ref progressBarMax, value); }
         }
 
         public bool RunEnabled
@@ -94,17 +129,22 @@ namespace Bridge_App.ViewModel
             set { Set(nameof(RunEnabled), ref runEnabled, value); }
         }
 
-        //Solution run to thread
+        public bool StopEnabled
+        {
+            get { return stopEnabled; }
+            set { Set(nameof(StopEnabled), ref stopEnabled, value); }
+        }
+
+        //Solution run to task
         private void SolutionRun()
         {
-            this.evaluationAndSolution.Solution();            
+            this.evaluationAndSolution.Solution();
             this.InformationInterfaceViewModel.SolutionText = this.evaluationAndSolution.SolutionText.ToString();
-            if (this.evaluationAndSolution.SolutionText != null)
-            {
-                this.fileReadOrWrite.SolutionWriteInFile(this.evaluationAndSolution.SolutionText);
-            }
+            this.fileReadOrWrite.SolutionWriteInFile(this.evaluationAndSolution.SolutionText);
             this.evaluationAndSolution.SolutionText.Clear();
-            this.operatorViewModel.ProgressValue = 0;          
+            this.operatorViewModel.ProgressValue = 0;
+            this.StopEnabled = false;
+            this.RunEnabled = true;
         }
 
         /// <summary>
@@ -112,7 +152,7 @@ namespace Bridge_App.ViewModel
         /// </summary>
         /// <param name="list"></param>
         /// <returns>StringBuilder text</returns>
-        private StringBuilder WriteToStringBuilder(ObservableCollection<Peoples> list)
+        private StringBuilder WriteToStringBuilder(ObservableCollection<People> list)
         {
             StringBuilder sb = new StringBuilder();
             if (list != null)
@@ -128,13 +168,7 @@ namespace Bridge_App.ViewModel
 
         public void ProgressBarRun()
         {
-            this.ProgressValue = 0;
-            for (int i = 0; i < 100; i++)
-            {
-                this.ProgressValue = i;
-                Thread.Sleep(10);
-            }
-            this.ProgressValue = 0;
+            this.ProgressBarMax = (this.evaluationAndSolution.BasedMembers.Count * 2) - 4;
         }
 
         //Solution text read from file

@@ -16,7 +16,3 @@ D:\C# gyakorlatok\Bridge_App\UnitTest_Bridge_App\bin\Debug\GalaSoft.MvvmLight.xm
 D:\C# gyakorlatok\Bridge_App\UnitTest_Bridge_App\obj\Debug\UnitTest_Bridge_App.csprojResolveAssemblyReference.cache
 D:\C# gyakorlatok\Bridge_App\UnitTest_Bridge_App\obj\Debug\UnitTest_Bridge_App.dll
 D:\C# gyakorlatok\Bridge_App\UnitTest_Bridge_App\obj\Debug\UnitTest_Bridge_App.pdb
-D:\C# gyakorlatok\Bridge_App\UnitTest_Bridge_App\bin\Debug\People.dll
-D:\C# gyakorlatok\Bridge_App\UnitTest_Bridge_App\bin\Debug\TwoMinimumValueMoved.dll
-D:\C# gyakorlatok\Bridge_App\UnitTest_Bridge_App\bin\Debug\People.pdb
-D:\C# gyakorlatok\Bridge_App\UnitTest_Bridge_App\bin\Debug\TwoMinimumValueMoved.pdb

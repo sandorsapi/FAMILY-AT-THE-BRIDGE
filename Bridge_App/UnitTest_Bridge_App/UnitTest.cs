@@ -3,7 +3,6 @@ using Bridge_App.Interface;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
 using System.Collections.Generic;
-using static People.People;
 
 namespace UnitTest
 {
@@ -11,130 +10,59 @@ namespace UnitTest
     public class UnitTest
     {
         [TestMethod]
-        public void moved_rightlist_returnmoved_leftlist()
+        public void solv_method_running()
         {
             //Arrange
-            var moqMinimumValue = new Mock<IEvaluationAndSolution>();
-            var moqpeopleValueRepository = new Mock<IPeopleRepository>();
+            var moqMinimumValue = new Mock<IAlgoritm>();
 
-            List<Peoples> peoplesValue = new List<Peoples>();
-            List<Peoples> left = new List<Peoples>();
+            List<People> peopleList = new List<People>();
 
-            left.Add(
-                new Peoples
+            peopleList.Add(
+                new People
                 {
                     peopleName = "Flinn",
                     movedTime = 2
                 });
 
-            left.Add(
-                new Peoples
+            peopleList.Add(
+                new People
                 {
                     peopleName = "Susan",
                     movedTime = 12
                 });
 
-            left.Add(
-               new Peoples
+            peopleList.Add(
+               new People
                {
                    peopleName = "Alex",
                    movedTime = 6
                });
 
-            moqMinimumValue.Setup(x => x.PeopleValue(left))
-           .Returns(() => left);
+            peopleList.Add(
+              new People
+              {
+                  peopleName = "Rock",
+                  movedTime = 8
+              });
 
-            var evaluationAndSolution = new EvaluationAndSolution(moqMinimumValue.Object, moqpeopleValueRepository.Object);
+            moqMinimumValue.Setup(x => x.Solv(peopleList));
 
-            //Act
-            evaluationAndSolution.CreateTestValue(left);
+            var evaluationAndSolution = new EvaluationAndSolution(moqMinimumValue.Object);
 
-            //Assert
-            moqMinimumValue.Verify(v => v.ReturnMoved(left, peoplesValue), Times.Never );
-        }
-
-        [TestMethod]
-        public void moved_rightlist_minimum_value_moved_leftlist()
-        {
-            var moqMinimumValue = new Mock<IEvaluationAndSolution>();
-            var moqpeopleValueRepository = new Mock<IPeopleRepository>();
-
-            List<Peoples> peoplesValue = new List<Peoples>();
-            List<Peoples> left = new List<Peoples>();
-
-            peoplesValue.Add(
-                new Peoples
-                {
-                    peopleName = "Flinn",
-                    movedTime = 2
-                });
-
-            peoplesValue.Add(
-                new Peoples
-                {
-                    peopleName = "Susan",
-                    movedTime = 12
-                });
-
-            peoplesValue.Add(
-               new Peoples
-               {
-                   peopleName = "Alex",
-                   movedTime = 6
-               });
-
-            moqMinimumValue.Setup(x => x.PeopleValue(peoplesValue))
-           .Returns(() => peoplesValue);
-
-            var evaluationAndSolution = new EvaluationAndSolution(moqMinimumValue.Object, moqpeopleValueRepository.Object);
+            evaluationAndSolution.BasedMembers.Add(new People
+            {
+                movedTime = peopleList[0].movedTime
+            });
+            evaluationAndSolution.BasedMembers.Add(new People
+            {
+                movedTime = peopleList[2].movedTime
+            });
 
             //Act
-            evaluationAndSolution.CreateTestValue(peoplesValue);
+            evaluationAndSolution.Solv(peopleList);
 
-            //Assert
-            moqMinimumValue.Verify(v => v.MovedTwoMemberMin(left, peoplesValue), Times.Never);
-        }
-
-        [TestMethod]
-        public void moved_rightlist_maximum_value_moved_leftlist()
-        {
-            var moqMaximumValue = new Mock<IEvaluationAndSolution>();
-            var moqpeopleValueRepository = new Mock<IPeopleRepository>();
-
-            List<Peoples> peoplesValue = new List<Peoples>();
-            List<Peoples> left = new List<Peoples>();
-
-            peoplesValue.Add(
-                new Peoples
-                {
-                    peopleName = "Flinn",
-                    movedTime = 2
-                });
-
-            peoplesValue.Add(
-                new Peoples
-                {
-                    peopleName = "Susan",
-                    movedTime = 12
-                });
-
-            peoplesValue.Add(
-               new Peoples
-               {
-                   peopleName = "Alex",
-                   movedTime = 6
-               });
-
-            moqMaximumValue.Setup(x => x.PeopleValue(peoplesValue))
-           .Returns(() => peoplesValue);
-
-            var evaluationAndSolution = new EvaluationAndSolution(moqMaximumValue.Object, moqpeopleValueRepository.Object);
-
-            //Act
-            evaluationAndSolution.CreateTestValue(peoplesValue);
-
-            //Assert
-            moqMaximumValue.Verify(v => v.MovedTwoMemberMax(left, peoplesValue), Times.Never);
+            // //Assert
+            moqMinimumValue.Verify(v => v.Solv(peopleList), Times.AtMostOnce);
         }
     }
 }

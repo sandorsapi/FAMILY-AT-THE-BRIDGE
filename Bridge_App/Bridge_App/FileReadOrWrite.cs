@@ -4,7 +4,6 @@ using System.Configuration;
 using System.IO;
 using System.Text;
 using System.Windows;
-using static People.People;
 
 namespace Bridge_App
 {
@@ -42,9 +41,9 @@ namespace Bridge_App
         /// File people list from file
         /// </summary>
         /// <returns>ObservableCollection<People></returns>
-        public ObservableCollection<Peoples> ReadFile()
+        public ObservableCollection<People> ReadFile()
         {
-            ObservableCollection<Peoples> people = new ObservableCollection<Peoples>();
+            ObservableCollection<People> people = new ObservableCollection<People>();
             string[] data = null;
             string[] dataRow = null;
             string[] separator = { "," };
@@ -58,7 +57,7 @@ namespace Bridge_App
                     while (i != dataRow.Length)
                     {
                         data = dataRow[i].Split(separator, StringSplitOptions.RemoveEmptyEntries);
-                        people.Add(new Peoples
+                        people.Add(new People
                         {
                             peopleName = data[0],
                             movedTime = Convert.ToInt64(data[1])

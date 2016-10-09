@@ -8,7 +8,8 @@ using System.IO;
 using System.Text;
 using System.Threading;
 using System.Windows;
-using static People.People;
+using System.Windows.Input;
+using System.Windows.Threading;
 
 namespace Bridge_App.ViewModel
 {
@@ -23,14 +24,18 @@ namespace Bridge_App.ViewModel
         private string randomButtonHidden;
         private string randomTextBoxVisibility;
         private bool peopleNumberTextFocus = true;
+        private bool runButtonEnabled;
         private RandomNumberCreate rnd;
         private FileReadOrWrite fileReadOrWrite = new FileReadOrWrite();
-        private Thread progressBarThread;
 
-        private string peopleListFileName = ConfigurationManager.AppSettings["peopleListFileName"];        
+        private Thread thread;
 
-        public ObservableCollection<Peoples> People { get; private set; } = new ObservableCollection<Peoples>();
+        private string peopleListFileName = ConfigurationManager.AppSettings["peopleListFileName"];
+
+        public ObservableCollection<People> People { get; private set; } = new ObservableCollection<People>();
         public List<long> peopleMovedTimeList = new List<long>();
+
+        private event EventHandler PeopleMovedTimeListPropertyChange;
 
         public OperatorViewModel()
         {
@@ -38,7 +43,22 @@ namespace Bridge_App.ViewModel
             this.ManualAddCommand = new RelayCommand(ManualAdd);
             this.RandomAddCommand = new RelayCommand(RandomAdd);
 
-            this.PeopleListReadFromFile();           
+            this.PeopleListReadFromFile();
+            this.PropertyChanged += PeopleMovedTimeList_PropertyChange;
+        }
+
+        public void PeopleMovedTimeList_PropertyChange(object sender, System.ComponentModel.PropertyChangedEventArgs e)
+        {
+            if (e.PropertyName.Equals("RunButtonEnabled"))
+            {
+                PeopleMovedTimeListPropertyChange?.Invoke(this, null);
+            }
+        }
+
+        public bool RunButtonEnabled
+        {
+            get { return runButtonEnabled; }
+            set { Set(nameof(RunButtonEnabled), ref runButtonEnabled, value); }
         }
 
         public long ProgressValue
@@ -59,12 +79,6 @@ namespace Bridge_App.ViewModel
             set { Set(nameof(RandomTime), ref randomTime, value); }
         }
 
-        public Thread ProgressBarThread
-        {
-            get { return progressBarThread; }
-            set { progressBarThread = value; }
-        }
-
         public bool RandomSelect
         {
             get { return randomSelect; }
@@ -81,6 +95,7 @@ namespace Bridge_App.ViewModel
                     this.PeopleNumber = 0;
                     this.peopleMovedTimeList.Clear();
                     this.People.Clear();
+                    this.RunButtonEnabled = false;
                 }
                 else
                 {
@@ -92,6 +107,7 @@ namespace Bridge_App.ViewModel
                     this.PeopleNumber = 0;
                     this.peopleMovedTimeList.Clear();
                     this.People.Clear();
+                    this.RunButtonEnabled = false;
                 }
             }
         }
@@ -99,10 +115,7 @@ namespace Bridge_App.ViewModel
         public bool ManualSelect
         {
             get { return manualSelect; }
-            set
-            {
-                Set(nameof(ManualSelect), ref manualSelect, value);
-            }
+            set { Set(nameof(ManualSelect), ref manualSelect, value); }
         }
 
         public string AddButtonVisibility
@@ -127,6 +140,12 @@ namespace Bridge_App.ViewModel
         {
             get { return peopleNumberTextFocus; }
             set { Set(nameof(PeopleNumberTextFocus), ref peopleNumberTextFocus, value); }
+        }
+
+        public List<long> PeopleMovedTimeList
+        {
+            get { return peopleMovedTimeList; }
+            set { Set(nameof(PeopleMovedTimeList), ref peopleMovedTimeList, value); }
         }
 
         public RelayCommand ManualAddCommand { get; private set; }
@@ -160,12 +179,18 @@ namespace Bridge_App.ViewModel
             this.peopleMovedTimeList.Clear();
             this.People.Clear();
 
+            this.RunButtonEnabled = true;
+
             RandomTask();
-            this.FillPeopleNameAndValueRandomData(this.peopleMovedTimeList);
         }
 
         private void RandomTask()
         {
+            Application.Current.Dispatcher.Invoke(() =>
+            {
+                Mouse.OverrideCursor = Cursors.Wait;
+            });
+
             if (this.RandomTime < this.PeopleNumber * 3)
             {
                 MessageBox.Show("The random time value is at least three times the number of people!", "Information", MessageBoxButton.OK, MessageBoxImage.Information);
@@ -174,13 +199,20 @@ namespace Bridge_App.ViewModel
             {
                 foreach (var randomItem in this.rnd.FillListRandomNumber(this.peopleNumber, this.randomTime))
                 {
-                    this.peopleMovedTimeList.Add(randomItem);
+                    this.PeopleMovedTimeList.Add(randomItem);
                 }
+                this.FillPeopleNameAndValueRandomData(this.PeopleMovedTimeList);
             }
             else
             {
+                this.RunButtonEnabled = false;
                 MessageBox.Show("The input text for field no value!", "ERROR", MessageBoxButton.OK, MessageBoxImage.Error);
             }
+
+            Application.Current.Dispatcher.Invoke(() =>
+            {
+                Mouse.OverrideCursor = Cursors.Arrow;
+            });
         }
 
         //Checked same value
@@ -215,11 +247,15 @@ namespace Bridge_App.ViewModel
         //Manual fill to People list
         private void FillPepoleNameAndValue(long peopleNumber)
         {
-            this.People.Add(new Peoples
+            this.People.Add(new People
             {
                 peopleName = RandomChar(peopleNumber),
                 movedTime = peopleNumber
             });
+            if (this.People.Count >= 3)
+            {
+                this.RunButtonEnabled = true;
+            }
         }
 
         //Random fill to People list
@@ -231,11 +267,15 @@ namespace Bridge_App.ViewModel
             {
                 foreach (var item in list)
                 {
-                    this.People.Add(new Peoples
+                    this.People.Add(new People
                     {
                         peopleName = RandomChar(item),
                         movedTime = item
                     });
+                }
+                if (this.People.Count != 0)
+                {
+                    this.RunButtonEnabled = true;
                 }
             }
         }
@@ -250,7 +290,7 @@ namespace Bridge_App.ViewModel
                 {
                     foreach (var item in this.fileReadOrWrite.ReadFile())
                     {
-                        this.People.Add(new Peoples
+                        this.People.Add(new People
                         {
                             peopleName = item.peopleName,
                             movedTime = Convert.ToInt64(item.movedTime)
@@ -258,6 +298,6 @@ namespace Bridge_App.ViewModel
                     }
                 }
             }
-        }      
+        }
     }
 }
