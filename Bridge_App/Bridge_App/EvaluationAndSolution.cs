@@ -42,10 +42,28 @@ namespace Bridge_App
             }
         }
 
+        public long RunTime
+        {
+            get { return runTime; }
+            set { runTime = value; }
+        }
+
         public List<People> BasedMembers
         {
             get { return basedMembers; }
             set { basedMembers = value; }
+        }
+
+        public List<People> RightMembers
+        {
+            get { return rightMembers; }
+            set { rightMembers = value; }
+        }
+
+        public List<People> LeftMembers
+        {
+            get { return leftMembers; }
+            set { leftMembers = value; }
         }
 
         public StringBuilder SolutionText
@@ -100,6 +118,7 @@ namespace Bridge_App
             this.step = 1;
             this.ProgressStep = 0;
             this.leftMembers.Clear();
+            this.rightMembers.Clear();
         }
 
         //The best speed people return moved result
@@ -324,7 +343,7 @@ namespace Bridge_App
         //Solution body
         public void Solv(List<People> peoples)
         {
-            this.rightMembers.AddRange(peoples);
+            this.RightMembers.AddRange(peoples);
 
             while (this.rightMembers.Count != 0)
             {

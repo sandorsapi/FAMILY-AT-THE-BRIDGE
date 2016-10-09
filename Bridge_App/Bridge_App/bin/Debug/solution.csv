@@ -1,38 +1,18 @@
-There: H(21) and A(1) - Moved time: 21 - Run time 21
-Back: A(1) - Moved time: 1 - Run time 22
-There: II(99) and A(1) - Moved time: 99 - Run time 121
-Back: A(1) - Moved time: 1 - Run time 122
-There: ID(94) and A(1) - Moved time: 94 - Run time 216
-Back: A(1) - Moved time: 1 - Run time 217
-There: IB(92) and A(1) - Moved time: 92 - Run time 309
-Back: A(1) - Moved time: 1 - Run time 310
-There: HE(85) and A(1) - Moved time: 85 - Run time 395
-Back: A(1) - Moved time: 1 - Run time 396
-There: GF(76) and A(1) - Moved time: 76 - Run time 472
-Back: A(1) - Moved time: 1 - Run time 473
-There: FI(69) and A(1) - Moved time: 69 - Run time 542
-Back: A(1) - Moved time: 1 - Run time 543
-There: FF(66) and A(1) - Moved time: 66 - Run time 609
-Back: A(1) - Moved time: 1 - Run time 610
-There: FJ(60) and A(1) - Moved time: 60 - Run time 670
-Back: A(1) - Moved time: 1 - Run time 671
-There: EG(57) and A(1) - Moved time: 57 - Run time 728
-Back: A(1) - Moved time: 1 - Run time 729
-There: EB(52) and A(1) - Moved time: 52 - Run time 781
-Back: A(1) - Moved time: 1 - Run time 782
-There: DF(46) and A(1) - Moved time: 46 - Run time 828
-Back: A(1) - Moved time: 1 - Run time 829
-There: DE(45) and A(1) - Moved time: 45 - Run time 874
-Back: A(1) - Moved time: 1 - Run time 875
-There: DA(41) and A(1) - Moved time: 41 - Run time 916
-Back: A(1) - Moved time: 1 - Run time 917
-There: CH(38) and A(1) - Moved time: 38 - Run time 955
-Back: A(1) - Moved time: 1 - Run time 956
-There: CC(33) and A(1) - Moved time: 33 - Run time 989
-Back: A(1) - Moved time: 1 - Run time 990
-There: CA(31) and A(1) - Moved time: 31 - Run time 1021
-Back: A(1) - Moved time: 1 - Run time 1022
-There: BF(26) and A(1) - Moved time: 26 - Run time 1048
-Back: A(1) - Moved time: 1 - Run time 1049
-There: BB(22) and A(1) - Moved time: 22 - Run time 1071
-Run time: 1071s
+There: C(3) and A(1) - Moved time: 3 - Run time 3
+Back: A(1) - Moved time: 1 - Run time 4
+There: DF(46) and DC(43) - Moved time: 46 - Run time 50
+Back: C(3) - Moved time: 3 - Run time 53
+There: C(3) and A(1) - Moved time: 3 - Run time 56
+Back: A(1) - Moved time: 1 - Run time 57
+There: CI(39) and CD(34) - Moved time: 39 - Run time 96
+Back: C(3) - Moved time: 3 - Run time 99
+There: C(3) and A(1) - Moved time: 3 - Run time 102
+Back: A(1) - Moved time: 1 - Run time 103
+There: CA(31) and BB(22) - Moved time: 31 - Run time 134
+Back: C(3) - Moved time: 3 - Run time 137
+There: C(3) and A(1) - Moved time: 3 - Run time 140
+Back: A(1) - Moved time: 1 - Run time 141
+There: AE(15) and AB(12) - Moved time: 15 - Run time 156
+Back: C(3) - Moved time: 3 - Run time 159
+There: C(3) and A(1) - Moved time: 3 - Run time 162
+Run time: 162s

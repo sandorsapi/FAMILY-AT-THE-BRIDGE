@@ -65,6 +65,13 @@ namespace Bridge_App.ViewModel
             this.ProgressValue = 0;
             this.evaluationAndSolution.ProgressStep = 0;
             this.RunEnabled = true;
+            this.InformationInterfaceViewModel.SolutionText = null;
+            this.evaluationAndSolution.BasedMembers.Clear();
+            this.evaluationAndSolution.Stepping.Clear();
+            this.evaluationAndSolution.MethodName = null;
+            this.evaluationAndSolution.RightMembers.Clear();
+            this.evaluationAndSolution.LeftMembers.Clear();
+            this.evaluationAndSolution.RunTime = 0;         
         }
 
         public RelayCommand RunCommand { get; private set; }
